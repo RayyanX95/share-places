@@ -12,7 +12,7 @@ const Users = () => {
     },
     {
       id: 'ul12',
-      name: 'Ahmed Ibrahim',
+      name: 'Maxi German',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcuyBDRggXou5g5i6sKOl0AfJdj9fh8ff_9uYINW8xxS4lkgEwyRuvM3yydzi7DT-ylAg&usqp=CAU',
       places: 1
     },
