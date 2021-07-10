@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NewPage = () => {
+const NewPlace = () => {
   return (
     <div>
       <h>Hello World</h>
@@ -8,4 +8,4 @@ const NewPage = () => {
   )
 }
 
-export default NewPage
+export default NewPlace
