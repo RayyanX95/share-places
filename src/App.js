@@ -24,7 +24,7 @@ const App = () => {
         </Router>
       </Switch>
     </main>
-    <Redirect to='/' />
+    {/* <Redirect to='/' /> */}
   </Router>
 }
 
