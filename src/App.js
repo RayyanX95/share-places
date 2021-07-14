@@ -9,7 +9,7 @@ import UserPlaces from './places/pages/UserPlaces';
 
 
 const App = () => {
-  return <Router>
+  return <Router data-test="router-container" >
     <MainNavigation />
     <main>
       <Switch>
