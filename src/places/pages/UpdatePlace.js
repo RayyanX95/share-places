@@ -1,7 +1,8 @@
-import React, { useParams } from 'react';
+import React from 'react';
 import Input from '../../shared/components/FormElements/Input';
 import { VALIDATOR_REQUIRE } from './../../shared/util/validators';
 import Button from './../../shared/components/FormElements/Button';
+import { useParams } from 'react-router-dom';
 
 
 export const DUMMY_PLACES = [
@@ -45,6 +46,7 @@ export const DUMMY_PLACES = [
 
 const UpdatePlace = props => {
   const placeId = useParams().placeId;
+  debugger;
 
   const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId);
 
