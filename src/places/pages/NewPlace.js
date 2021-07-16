@@ -18,7 +18,7 @@ const formReducer = (state, action) => {
       }
       return {
         ...state,
-        input: {
+        inputs: {
           ...state.inputs,
           [action.inputId]: { value: action.value, isValid: action.isValid }
         },
@@ -43,13 +43,18 @@ const NewPlace = () => {
     },
     isValid: false
   });
-
+  debugger;
   const inputHandler = useCallback((id, value, isValid) => {
     dispatch({ type: 'INPUT_CHANGE', value: value, isValid: isValid, inputId: id })
   }, []);
 
+  const placeSubmitHandler = e => {
+    e.preventDefault();
+    console.log("state data: ", formState.inputs);
+  }
+
   return (
-    <form className="place-form" >
+    <form className="place-form" onSubmit={placeSubmitHandler} >
       <Input
         id="title"
         element="input"
@@ -66,7 +71,7 @@ const NewPlace = () => {
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="Please enter a valid Description"
         onInput={inputHandler} />
-      <Button type="submit" onClick={""} disabled={!formState.isValid} >
+      <Button type="submit" disabled={!formState.isValid} >
         ADD PLACE
       </Button>
     </form>
