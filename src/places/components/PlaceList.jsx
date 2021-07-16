@@ -8,7 +8,7 @@ const PlaceList = (props) => {
   if (!props.items.length) {
     return (
       <Card>
-        <h1>No places found. Maybe create one?</h1>
+        <h1 data-test='no-places-message' >No places found. Maybe create one?</h1>
         <button>Share Place</button>
       </Card>
     )
@@ -16,6 +16,7 @@ const PlaceList = (props) => {
   return (
     <ul className='place-list' data-test="place-list-component" >
       {props.items.map(place => <PlaceItem
+        data-test="place-item"
         key={place.id}
         id={place.id}
         image={place.imageUrl}
