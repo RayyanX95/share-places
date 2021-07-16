@@ -14,7 +14,7 @@ const PlaceList = (props) => {
     )
   }
   return (
-    <ul className='place-list' >
+    <ul className='place-list' data-test="place-list-component" >
       {props.items.map(place => <PlaceItem
         key={place.id}
         id={place.id}
