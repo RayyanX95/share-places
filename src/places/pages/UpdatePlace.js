@@ -4,6 +4,7 @@ import { VALIDATOR_REQUIRE } from './../../shared/util/validators';
 import Button from './../../shared/components/FormElements/Button';
 import { useParams } from 'react-router-dom';
 
+import './PlaceForm.css';
 
 export const DUMMY_PLACES = [
   {
@@ -46,7 +47,6 @@ export const DUMMY_PLACES = [
 
 const UpdatePlace = props => {
   const placeId = useParams().placeId;
-  debugger;
 
   const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId);
 
@@ -59,7 +59,7 @@ const UpdatePlace = props => {
   }
 
   return (
-    <form OnSubmit={() => {}} > 
+    <form className="place-form" OnSubmit={() => {}} > 
       <Input
         id="title"
         element="input"

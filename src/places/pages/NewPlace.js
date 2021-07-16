@@ -2,7 +2,7 @@ import React, { useCallback, useReducer } from 'react';
 
 import Input from '../../shared/components/FormElements/Input';
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../shared/util/validators';
-import './NewPlace.css';
+import './PlaceForm.css';
 import Button from './../../shared/components/FormElements/Button';
 
 const formReducer = (state, action) => {
