@@ -31,7 +31,7 @@ const formReducer = (state, action) => {
 
 const NewPlace = () => {
   const [formState, dispatch] = useReducer(formReducer, {
-    input: {
+    inputs: {
       title: {
         value: '',
         isValid: false,
