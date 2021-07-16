@@ -43,13 +43,13 @@ const NewPlace = () => {
     },
     isValid: false
   });
-  debugger;
   const inputHandler = useCallback((id, value, isValid) => {
     dispatch({ type: 'INPUT_CHANGE', value: value, isValid: isValid, inputId: id })
   }, []);
 
   const placeSubmitHandler = e => {
     e.preventDefault();
+    // TODO send data to the BE
     console.log("state data: ", formState.inputs);
   }
 
@@ -65,12 +65,21 @@ const NewPlace = () => {
         onInput={inputHandler} />
       <Input
         id="description"
-        element="textarea"
+        element="input"
         type="textarea"
         label="Description"
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="Please enter a valid Description"
         onInput={inputHandler} />
+      <Input
+        id="address"
+        element="input"
+        type="textarea"
+        label="Address"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Please enter a valid address"
+        onInput={inputHandler} />
+
       <Button type="submit" disabled={!formState.isValid} >
         ADD PLACE
       </Button>
