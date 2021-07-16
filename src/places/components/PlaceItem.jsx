@@ -7,13 +7,13 @@ import Modal from '../../shared/components/UIElements/Modal';
 import Map from '../../shared/components/UIElements/Map';
 
 const PlaceItem = (props) => {
-  const [showMap, setShowMap] = useState(false);
+  const [showMap, setShowMap] = React.useState(false);
   const openMapHandler = () => {
     setShowMap(true);
-    // debugger;
-
   };
+
   const closeMapHandler = () => setShowMap(false);
+
   return (
     <React.Fragment>
       <Modal
@@ -22,12 +22,12 @@ const PlaceItem = (props) => {
         header={props.address}
         contentClass="place-item__modal-content"
         footerClass="place-item__modal-actions"
-        footer={<Button onClick={closeMapHandler} >CLOSE</Button>}>
+        footer={<Button onClick={closeMapHandler}>CLOSE</Button>}>
         <div className="map-container">
           <Map center={props.coordinates} zoom={16} />
         </div>
       </Modal>
-      <li className="place-item" >
+      <li className="place-item" data-test="place-item">
         <Card>
           <div className="place-item__image">
             <img src={props.image} alt={props.title} />
@@ -38,7 +38,7 @@ const PlaceItem = (props) => {
             <p>{props.description}</p>
           </div>
           <div className="place-item__actions">
-            <Button inverse onClick={openMapHandler} >VIEW ON MAP</Button>
+            <Button inverse onClick={openMapHandler} data-test="open-modal-btn" >VIEW ON MAP</Button>
             <Button to={`/places/${props.id}`} >EDIT</Button>
             <Button danger >DELETE</Button>
           </div>
