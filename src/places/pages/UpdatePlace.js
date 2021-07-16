@@ -49,6 +49,7 @@ export const DUMMY_PLACES = [
 ]
 
 const UpdatePlace = props => {
+  const placeId = useParams().placeId;
   const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId);
 
   const [formState, inputHandler] = useForm({
@@ -60,9 +61,13 @@ const UpdatePlace = props => {
       value: identifiedPlace.description,
       isValid: true,
     }
-  })
-  const placeId = useParams().placeId;
+  });
 
+  const placeUpdateSubmitHandler = e => {
+    e.preventDefault();
+
+    console.log("UpdatePlace: ", formState.inputs);
+  }
 
   if (!identifiedPlace) {
     return (
@@ -70,10 +75,10 @@ const UpdatePlace = props => {
         <h2>Could not find place!</h2>
       </div>
     )
-  }
+  };
 
   return (
-    <form className="place-form" OnSubmit={() => { }} >
+    <form className="place-form" onSubmit={placeUpdateSubmitHandler} >
       <Input
         id="title"
         element="input"
