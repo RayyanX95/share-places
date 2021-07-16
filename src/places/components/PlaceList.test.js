@@ -24,6 +24,18 @@ describe("render PLaceList component", () => {
   });
 });
 
-// test('render place item list when', () => {
-//   const 
-// })
+describe('render place item', () => {
+  test('no place item found', () => {
+    const wrapper = setup({items: []});
+    const placeItem = findByTestAttr(wrapper, 'place-item');
+
+    expect(placeItem.length).toBe(0)
+  });
+
+  test('render place item list when they are 3', () => {
+    const wrapper = setup({items: DUMMY_PLACES});
+    const placeItem = findByTestAttr(wrapper, 'place-item');
+
+    expect(placeItem.length).toBe(3)
+  })
+})

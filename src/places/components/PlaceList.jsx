@@ -29,4 +29,4 @@ const PlaceList = (props) => {
   )
 }
 
-export default PlaceList
+export default PlaceList;
