@@ -17,12 +17,13 @@ const PlaceItem = (props) => {
   return (
     <React.Fragment>
       <Modal
+        data-test="map-modal"
         show={showMap}
         onCancel={closeMapHandler}
         header={props.address}
         contentClass="place-item__modal-content"
         footerClass="place-item__modal-actions"
-        footer={<Button onClick={closeMapHandler}>CLOSE</Button>}>
+        footer={<Button data-test="close-modal-btn" onClick={closeMapHandler}>CLOSE</Button>}>
         <div className="map-container">
           <Map center={props.coordinates} zoom={16} />
         </div>
