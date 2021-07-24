@@ -7,7 +7,7 @@ const UserList = props => {
 
   if (!props.items?.length) {
     return (
-      <div className="center">
+      <div data-test="no-users" className="center">
         <h2>No users found</h2>
       </div>
     )
@@ -16,6 +16,7 @@ const UserList = props => {
     <ul className="users-list" >
       {props.items.map(user => (
         <UserItem
+          data-test="user-item"
           key={user.id}
           id={user.id}
           image={user.image}
