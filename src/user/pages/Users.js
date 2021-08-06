@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
 import UsersList from '../components/UserList';
 
@@ -24,8 +26,39 @@ const USERS = [
 ];
 
 const Users = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+  const [loadedUsers, setLoadedUsers] = useState();
+
+  useEffect(() => {
+    try {
+      setError(null);
+      const sendRequest = async () => {
+        const response = await fetch('http://localhost:5000/api/users');
+        console.log('response', response);
+        const parsedResponse = await response.json();
+        console.log('parsedResponse', parsedResponse);
+        if (!response.ok) {
+          throw new Error(parsedResponse.message);
+        }
+        setLoadedUsers(parsedResponse.users);
+        setIsLoading(false);
+      };
+      sendRequest();
+    } catch (error) {
+      setIsLoading(false);
+      setError(error.message);
+    };
+  }, []);
+
+  const errorHandler = () => setError(null);
+
   return (
-    <UsersList items={USERS} />
+    <React.Fragment>
+      {isLoading && <LoadingSpinner />}
+      {error && <ErrorModal asOverlay onClick={errorHandler} />}
+      <UsersList items={loadedUsers || []} />
+    </React.Fragment>
   )
 }
 
