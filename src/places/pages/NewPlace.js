@@ -34,6 +34,7 @@ const NewPlace = () => {
 
   const placeSubmitHandler = async (e) => {
     e.preventDefault();
+
     try {
       await sendRequest('http://localhost:5000/api/places',
         'POST',
@@ -41,7 +42,7 @@ const NewPlace = () => {
           title: formState.inputs.title.value,
           description: formState.inputs.description.value,
           address: formState.inputs.address.value,
-          create: auth.userId
+          creator: auth.userId   
         }),
         {
           'Content-Type': 'application/json',

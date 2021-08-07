@@ -4,12 +4,12 @@ export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const activeHttRequests = useRef([]);
-  console.log('activeHttRequests', activeHttRequests);
+  // console.log('activeHttRequests', activeHttRequests);
 
   // TODO wrap @sendRequest function with @useCallback 
   const sendRequest = useCallback(async (url, method = "GET", body = null, headers = {}) => {
     const httpAbortCtrl = new AbortController();
-    console.log('httpAbortCtrl', httpAbortCtrl);
+    // console.log('httpAbortCtrl', httpAbortCtrl);
     activeHttRequests.current.push(httpAbortCtrl);
     setIsLoading(true);
     try {

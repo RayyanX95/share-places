@@ -43,6 +43,7 @@ const Auth = () => {
             'Content-Type': 'application/json',
           }
         );
+        console.log('parsedData.user.id', parsedData.user.id);
         auth.login(parsedData.user.id);
       } catch (error) {
         // * Errors are already handled by on useHttpClient

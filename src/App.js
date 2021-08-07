@@ -60,8 +60,6 @@ const App = () => {
     )
   }
 
-  console.log('login: ', isLoggedIn);
-
   return (
     <AuthContext.Provider value={{ isLoggedIn, userId, login, logout }} >
       <Router data-test="router-container" >
