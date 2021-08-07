@@ -33,7 +33,7 @@ const Auth = () => {
 
     if (isLoginMode) {
       try {
-        await sendRequest('http://localhost:5000/api/users/login',
+        const parsedData = await sendRequest('http://localhost:5000/api/users/login',
           "POST",
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -43,13 +43,13 @@ const Auth = () => {
             'Content-Type': 'application/json',
           }
         );
-        auth.login();
+        auth.login(parsedData.useForm.id);
       } catch (error) {
         // * Errors are already handled by on useHttpClient
       };
     } else {
       try {
-        await setIsLoginMode('http://localhost:5000/api/users/signup',
+        const parsedData = await setIsLoginMode('http://localhost:5000/api/users/signup',
           'POST',
           JSON.stringify({
             name: formState.inputs.name.value,
@@ -60,7 +60,7 @@ const Auth = () => {
             'Content-Type': 'application/json',
           },
         );
-        auth.login();
+        auth.login(parsedData.useForm.id);
       } catch (error) {
         console.log(error);
       };
