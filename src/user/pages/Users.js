@@ -18,7 +18,7 @@ const Users = () => {
       };
       sendHttpRequest();
     } catch (error) {
-      // * Errors are handled on useHttpClient method** 
+      // * Errors are handled on useHttpClient method
     };
   }, [sendRequest]);
 
