@@ -10,9 +10,11 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from './../../shared/context/auth-context';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import ErrorModal from './../../shared/components/UIElements/ErrorModal';
+import { useHistory } from 'react-router-dom';
 
 const NewPlace = () => {
-  const { error, sendRequest, clearError, isLoading } = {};
+  const { error, sendRequest, clearError, isLoading } = useHttpClient();
+  const history = useHistory();
   const auth = useContext(AuthContext)
   const [formState, inputHandler] = useForm({
     title: {
@@ -44,7 +46,8 @@ const NewPlace = () => {
         {
           'Content-Type': 'application/json',
         });
-      // TODO redirect user to a different page
+      // // TODO redirect user to a different page
+      history.push('/');
     } catch (error) {
       // * Errors are handled on useHttpClient
     };

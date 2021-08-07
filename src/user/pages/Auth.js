@@ -43,13 +43,13 @@ const Auth = () => {
             'Content-Type': 'application/json',
           }
         );
-        auth.login(parsedData.useForm.id);
+        auth.login(parsedData.user.id);
       } catch (error) {
         // * Errors are already handled by on useHttpClient
       };
     } else {
       try {
-        const parsedData = await setIsLoginMode('http://localhost:5000/api/users/signup',
+        const parsedData = await sendRequest('http://localhost:5000/api/users/signup',
           'POST',
           JSON.stringify({
             name: formState.inputs.name.value,
