@@ -6,11 +6,17 @@ import Button from './../../shared/components/FormElements/Button';
 import Modal from '../../shared/components/UIElements/Modal';
 import Map from '../../shared/components/UIElements/Map';
 import { AuthContext } from '../../shared/context/auth-context';
+import { useHttpClient } from './../../shared/hooks/http-hook';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 
 const PlaceItem = (props) => {
   const auth = useContext(AuthContext);
   const [showMap, setShowMap] = React.useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+
+  const { isLoading, sendRequest, error, clearError } = useHttpClient();
+
   const openMapHandler = () => {
     setShowMap(true);
   };
@@ -25,13 +31,22 @@ const PlaceItem = (props) => {
     setShowConfirmModal(false);
   }
 
-  const confirmDeleteWarningHandler = () => {
+  const confirmDeleteWarningHandler = async () => {
     cancelDeleteWarningHandler();
     console.log("DELETING");
+
+    try {
+      await sendRequest(`http://localhost:5000/api/places/${props.id}`, 'DELETE');
+      props.onDelete(props.id);
+    } catch (error) {
+
+    };
   }
 
   return (
     <React.Fragment>
+      {isLoading && <LoadingSpinner asOverlay />}
+      {error && <ErrorModal error={error} onClear={clearError} />}
       <Modal
         data-test="map-modal"
         show={showMap}
