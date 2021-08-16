@@ -6,12 +6,13 @@ import Avatar from '../../shared/components/UIElements/Avatar';
 import Card from '../../shared/components/UIElements/Card';
 
 const UserItem = (props) => {
+  console.log(props.image)
   return (
     <li data-test="user-item" className="user-item" >
       <Card className="user-item__content">
         <Link data-test="user-link" to={`/${props.id}/places`} >
           <div className="user-item__image">
-            <Avatar image={props.image} name={props.name} />
+            <Avatar image={`http://localhost:5000/${props.image}`} name={props.name} />
           </div>
           <div className="user-item__info">
             <h2>{props.name}</h2>
