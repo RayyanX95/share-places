@@ -11,6 +11,7 @@ import { AuthContext } from './../../shared/context/auth-context';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import ErrorModal from './../../shared/components/UIElements/ErrorModal';
 import { useHistory } from 'react-router-dom';
+import ImageUpload from './../../shared/components/FormElements/ImageUpload';
 
 const NewPlace = () => {
   const { error, sendRequest, clearError, isLoading } = useHttpClient();
@@ -28,6 +29,10 @@ const NewPlace = () => {
     address: {
       value: '',
       isValid: false,
+    },
+    image: {
+      value: '',
+      isValid: false,
     }
   }, false);
 
@@ -42,7 +47,7 @@ const NewPlace = () => {
           title: formState.inputs.title.value,
           description: formState.inputs.description.value,
           address: formState.inputs.address.value,
-          creator: auth.userId   
+          creator: auth.userId
         }),
         {
           'Content-Type': 'application/json',
@@ -83,6 +88,7 @@ const NewPlace = () => {
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Please enter a valid address"
           onInput={inputHandler} />
+        <ImageUpload id="image" center onInput={inputHandler} />
 
         <Button type="submit" disabled={!formState.isValid} >
           ADD PLACE

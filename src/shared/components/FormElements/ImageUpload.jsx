@@ -12,6 +12,10 @@ const ImageUpload = (props) => {
 
   let pickedFile;
   let fileIsValid = isValid;
+  /**
+   * @pickedHandler is the default picking file handler that bind with the @onChange
+   * of the file @input field 
+   */
   const pickedHandler = (e) => {
     if (e.target.files && e.target.files.length === 1) {
       pickedFile = e.target.files[0];
@@ -26,6 +30,9 @@ const ImageUpload = (props) => {
     props.onInput(props.id, pickedFile, fileIsValid);
   };
 
+  /**
+   * @useEffect will rerun when the file is changed
+   */
   useEffect(() => {
     if (!file) return;
 
@@ -36,6 +43,12 @@ const ImageUpload = (props) => {
     fileReader.readAsDataURL(file);
   }, [file])
 
+  /**
+   * @pickImageHandler used in this way with this extra @ref to hide 
+   * the default view of the input field of type file and use a custom 
+   * UI that's implemented using custom @Button 
+   * We do NOT need to do so, it's just to use custom UI for file input field
+   */
   const pickImageHandler = () => {
     filePickerRef.current.click();
   }
