@@ -63,6 +63,7 @@ const Auth = () => {
           'POST',
           formData,
         );
+        
         auth.login(parsedData.user.id);
       } catch (error) {
         console.log(error);
