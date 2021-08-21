@@ -47,7 +47,7 @@ const Auth = () => {
           }
         );
         console.log('parsedData.userId', parsedData.userId);
-        auth.login(parsedData.userId, parsedData.token);
+        auth.login(parsedData.userId, parsedData.token, parsedData.name);
       } catch (error) {
         // * Errors are already handled by on useHttpClient
       };
@@ -64,7 +64,7 @@ const Auth = () => {
           formData,
         );
 
-        auth.login(parsedData.userId, parsedData.token);
+        auth.login(parsedData.userId, parsedData.token, parsedData.name);
       } catch (error) {
         console.log(error);
       };

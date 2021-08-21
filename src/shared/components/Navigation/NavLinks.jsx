@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { BiUser } from "react-icons/bi";
 
 import './NavLinks.css';
 import { AuthContext } from '../../context/auth-context';
@@ -24,6 +25,10 @@ const NanLinks = () => {
       {auth.isLoggedIn && <li>
         <button onClick={auth.logout} >LOGOUT</button>
       </li>}
+      {auth.isLoggedIn && <li title={auth.username} >
+        <BiUser color="#f8df00" size="2rem" />
+      </li>}
+
     </ul >
   )
 }

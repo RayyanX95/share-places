@@ -13,15 +13,18 @@ import { AuthContext } from './shared/context/auth-context';
 const App = () => {
   const [token, setToken] = useState(false);
   const [userId, setUserId] = useState();
+  const [username, setUsername] = useState();
 
-  const login = useCallback((uid, token) => {
+  const login = useCallback((uid, token, username) => {
     setToken(token);
+    setUsername(username);
     setUserId(uid);
   }, []);
 
   const logout = useCallback(() => {
     setToken(null);
     setUserId(null);
+    setUsername(null);
   }, []);
 
   let routes;
@@ -65,6 +68,7 @@ const App = () => {
       isLoggedIn: !!token,
       token,
       userId,
+      username,
       login,
       logout
     }} >
