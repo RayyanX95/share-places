@@ -46,8 +46,8 @@ const Auth = () => {
             'Content-Type': 'application/json',
           }
         );
-        console.log('parsedData.user.id', parsedData.user.id);
-        auth.login(parsedData.user.id);
+        console.log('parsedData.userId', parsedData.userId);
+        auth.login(parsedData.userId, parsedData.token);
       } catch (error) {
         // * Errors are already handled by on useHttpClient
       };
@@ -63,8 +63,8 @@ const Auth = () => {
           'POST',
           formData,
         );
-        
-        auth.login(parsedData.user.id);
+
+        auth.login(parsedData.userId, parsedData.token);
       } catch (error) {
         console.log(error);
       };
