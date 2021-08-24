@@ -36,6 +36,10 @@
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
     "enzyme": "^3.11.0",
-    "jest-enzyme": "^7.1.2"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "jest-enzyme": "^7.1.2",
+    "prettier": "^2.3.2"
   }
 }

@@ -32,8 +32,6 @@ const Auth = () => {
   const authSubmitHandler = async (e) => {
     e.preventDefault();
 
-    console.log("formInputs: ", formState.inputs);
-
     if (isLoginMode) {
       try {
         const parsedData = await sendRequest('http://localhost:5000/api/users/login',
@@ -46,7 +44,6 @@ const Auth = () => {
             'Content-Type': 'application/json',
           }
         );
-        console.log('parsedData.userId', parsedData.userId);
         auth.login(parsedData.userId, parsedData.token, parsedData.name);
       } catch (error) {
         // * Errors are already handled by on useHttpClient

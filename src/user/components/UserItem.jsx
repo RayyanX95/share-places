@@ -6,7 +6,6 @@ import Avatar from '../../shared/components/UIElements/Avatar';
 import Card from '../../shared/components/UIElements/Card';
 
 const UserItem = (props) => {
-  console.log(props.image)
   return (
     <li data-test="user-item" className="user-item" >
       <Card className="user-item__content">
