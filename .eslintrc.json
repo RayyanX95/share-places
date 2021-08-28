@@ -1,9 +1,14 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+    // "plugin:import/recommended"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -14,9 +19,15 @@
   "plugins": ["react"],
   "rules": {
     "no-console": "warn",
-    "no-empty":"warn",
-    "no-extra-semi":"warn",
-    "multiline-ternary":"off",
+    "no-empty": "warn",
+    "no-extra-semi": "warn",
+    "multiline-ternary": "off",
+
+    // "import/no-unresolved": [2, {"commonjs": true, "amd": true}],
+    // "import/named": 1,
+    // "import/namespace": 1,
+    // "import/default": 1,
+    // "import/export": 1,
 
     // For React
     "react/prop-types": "off",

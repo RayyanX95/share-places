@@ -10,9 +10,10 @@ const Users = () => {
   const { sendRequest, isLoading, error, clearError } = useHttpClient();
 
   useEffect(() => {
+    console.log('url: ', `${process.env.REACT_APP_BACKEND_URL}/users`)
     try {
       const sendHttpRequest = async () => {
-        const parsedResponse = await sendRequest('http://localhost:5000/api/users');
+        const parsedResponse = await sendRequest(`${process.env.REACT_APP_BACKEND_URL}/users`);
         setLoadedUsers(parsedResponse.users);
         // console.log('parsedResponse', parsedResponse);
       };
