@@ -41,8 +41,6 @@ const NewPlace = () => {
   const placeSubmitHandler = async (e) => {
     e.preventDefault();
 
-    console.log(formState);
-
     try {
       const formData = new FormData();
       formData.append('title', formState.inputs.title.value);
@@ -51,7 +49,7 @@ const NewPlace = () => {
       formData.append('image', formState.inputs.image.value);
 
       await sendRequest(`${process.env.REACT_APP_BACKEND_URL}/places`, 'POST', formData, {
-        Authorization: 'Bearer ' + auth.token
+        Authorization: `Bearer ${auth.token}`
       });
 
       // // TODO redirect user to a different page
