@@ -12,7 +12,7 @@ const PlaceList = (props) => {
         <h1 data-test='no-places-message' >No places found. Maybe create one?</h1>
         <Button to="/places/new" >Share PLace</Button>
       </Card>
-    )
+    );
   }
   return (
     <ul className='place-list' data-test="place-list-component" >
@@ -28,7 +28,7 @@ const PlaceList = (props) => {
         onDelete={props.onDeletePlace}
       />)}
     </ul>
-  )
-}
+  );
+};
 
 export default PlaceList;

@@ -4,13 +4,12 @@
   "private": true,
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "eslint": "^7.32.0",
     "mapbox-gl": "^2.3.1",
     "react": "^16.11.0",
     "react-dom": "^16.14.0",
     "react-icons": "^4.2.0",
     "react-router-dom": "5.2.0",
-    "react-scripts": "3.2.0",
+    "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.2"
   },
   "scripts": {
@@ -37,10 +36,8 @@
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
     "enzyme": "^3.11.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.1",
+    "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.24.0",
-    "jest-enzyme": "^7.1.2",
-    "prettier": "^2.3.2"
+    "jest-enzyme": "^7.1.2"
   }
 }

@@ -61,8 +61,6 @@ const UpdatePlace = props => {
 
   }, [setFormData, sendRequest, placeId]);
 
-
-
   const placeUpdateSubmitHandler = async e => {
     e.preventDefault();
 
@@ -82,7 +80,7 @@ const UpdatePlace = props => {
       history.push('/' + auth.userId + '/places');
     } catch (error) {
 
-    };
+    }
   }
 
   if (isLoading) {
@@ -96,7 +94,7 @@ const UpdatePlace = props => {
         </div>
       </Card>
     )
-  };
+  }
 
   return (
     <form className="place-form" onSubmit={placeUpdateSubmitHandler} >
