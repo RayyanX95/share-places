@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import Users from './user/pages/Users';
@@ -14,6 +14,7 @@ const NewPlace = React.lazy(() => import('./places/pages/NewPlace'));
 const UserPlaces = React.lazy(() => import('./places/pages/UserPlaces'));
 const UpdatePlace = React.lazy(() => import('./places/pages/UpdatePlace'));
 const Auth = React.lazy(() => import('./user/pages/Auth'));
+import LoadingSpinner from './shared/components/UIElements/LoadingSpinner';
 
 const App = () => {
   const [token, setToken] = useState(false);
@@ -55,13 +56,19 @@ const App = () => {
           <Users />
         </Route>
         <Route path="/:userId/places">
-          <UserPlaces />
+          <Suspense fallback={<div className="center" ><LoadingSpinner /></div>} >
+            <UserPlaces />
+          </Suspense>
         </Route>
         <Route path="/places/new" exact>
-          <NewPlace />
+          <Suspense fallback={<div className="center" ><LoadingSpinner /></div>} >
+            <NewPlace />
+          </Suspense>
         </Route>
         <Route path="/places/:placeId">
-          <UpdatePlace />
+          <Suspense fallback={<div className="center" ><LoadingSpinner /></div>} >
+            <UpdatePlace />
+          </Suspense>
         </Route>
         <Redirect to='/' />
       </Switch>
@@ -73,10 +80,14 @@ const App = () => {
           <Users />
         </Route>
         <Route path="/:userId/places">
-          <UserPlaces />
+          <Suspense fallback={<div className="center" ><LoadingSpinner /></div>} >
+            <UserPlaces />
+          </Suspense>
         </Route>
         <Route path="/auth">
-          <Auth />
+          <Suspense fallback={<div className="center" ><LoadingSpinner /></div>} >
+            <Auth />
+          </Suspense>
         </Route>
         <Redirect to='/auth' />
       </Switch>
