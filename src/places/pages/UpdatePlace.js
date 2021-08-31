@@ -10,8 +10,8 @@ import Card from '../../shared/components/UIElements/Card';
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from './../../shared/context/auth-context';
 
-const UpdatePlace = props => {
-  const { isLoading, sendRequest, error, clearError } = useHttpClient();
+const UpdatePlace = () => {
+  const { isLoading, sendRequest } = useHttpClient();
   const [loadedPlace, setLoadedPlace] = useState();
   const history = useHistory();
   const auth = useContext(AuthContext);
@@ -65,7 +65,7 @@ const UpdatePlace = props => {
     e.preventDefault();
 
     try {
-      const responseData = await sendRequest(
+      await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/places/${placeId}`,
         'PATCH',
         JSON.stringify({
@@ -74,10 +74,10 @@ const UpdatePlace = props => {
         }),
         {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + auth.token
+          Authorization: `Bearer ${auth.token}`
         });
 
-      history.push('/' + auth.userId + '/places');
+      history.push(`/${auth.userId}/places`);
     } catch (error) {
 
     }

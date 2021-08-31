@@ -40,7 +40,7 @@ const PlaceItem = (props) => {
         'DELETE',
         null, // no body needed
         {
-          Authorization: 'bearer ' + auth.token
+          Authorization: `bearer ${auth.token}`
         }
       );
       props.onDelete(props.id);
